@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-    BookOpen, ChevronDown, PlayCircle, RotateCcw, Target, GitBranch,
-    Code2, CheckCircle, Clock, Lightbulb, AlertCircle, Rocket,
+    BookOpen, ChevronDown, RotateCcw, Target, GitBranch,
+    Code2, CheckCircle, Clock, Lightbulb, Rocket,
     FileText, GitCommit, GitPullRequest, Activity, Layers, Tag
 } from 'lucide-react';
 
@@ -223,14 +223,7 @@ const AgileLifecycleModule: React.FC = () => {
         },
     ];
 
-    const getStatusColor = (status: TicketStatus) => {
-        switch (status) {
-            case 'backlog': return 'slate';
-            case 'inProgress': return 'blue';
-            case 'review': return 'amber';
-            case 'done': return 'emerald';
-        }
-    };
+
 
     const getStageIcon = (currentStage: Stage) => {
         return {
@@ -366,8 +359,8 @@ const AgileLifecycleModule: React.FC = () => {
                                         key={ticket.id}
                                         layout
                                         className={`rounded-lg p-2.5 border cursor-pointer transition-all ${ticket.status === 'backlog'
-                                                ? 'bg-slate-800/50 border-slate-700/50 hover:border-blue-500/50'
-                                                : 'bg-blue-500/20 border-blue-500/50'
+                                            ? 'bg-slate-800/50 border-slate-700/50 hover:border-blue-500/50'
+                                            : 'bg-blue-500/20 border-blue-500/50'
                                             } ${isAnimating ? 'pointer-events-none' : ''}`}
                                         onClick={() => !isAnimating && runLifecycle(ticket)}
                                     >

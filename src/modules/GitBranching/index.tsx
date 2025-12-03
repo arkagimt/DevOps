@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-    GitBranch, GitCommit, GitMerge, BookOpen, Zap, Clock, TrendingUp,
-    AlertCircle, CheckCircle2, PlayCircle, PauseCircle, RotateCcw,
-    ChevronDown, Lightbulb, Target, Users
+    GitBranch, GitCommit, GitMerge, BookOpen, Clock, TrendingUp,
+    PlayCircle, PauseCircle, RotateCcw,
+    ChevronDown, Lightbulb, Target
 } from 'lucide-react';
 
 type BranchStrategy = 'gitflow' | 'trunk';
@@ -23,18 +23,13 @@ interface Branch {
     active: boolean;
 }
 
-interface Connection {
-    from: Commit;
-    to: Commit;
-    type: 'commit' | 'merge' | 'branch';
-}
+
 
 const GitBranchingModule: React.FC = () => {
     const [strategy, setStrategy] = useState<BranchStrategy>('gitflow');
     const [isPlaying, setIsPlaying] = useState(false);
     const [step, setStep] = useState(0);
     const [commits, setCommits] = useState<Commit[]>([]);
-    const [connections, setConnections] = useState<Connection[]>([]);
     const [expandedTheory, setExpandedTheory] = useState<Set<string>>(new Set(['overview']));
 
     // Branch configuration
@@ -110,7 +105,7 @@ const GitBranchingModule: React.FC = () => {
 
     const resetAnimation = () => {
         setCommits([]);
-        setConnections([]);
+
         setStep(0);
         setIsPlaying(false);
     };
