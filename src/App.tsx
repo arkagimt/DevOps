@@ -8,12 +8,14 @@ import GitBranchingModule from './modules/GitBranching';
 import AgileLifecycleModule from './modules/AgileLifecycle';
 import GitHubActionsModule from './modules/GitHubActions';
 import PlaceholderModule from './components/PlaceholderModule';
+import OverviewPage from './components/OverviewPage';
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route index element={<OverviewPage />} />
           <Route path="pipeline" element={<Navigate to="/theory" replace />} />
           <Route path="theory" element={<TheoryPage />} />
           <Route path="simulator" element={<SimulatorPage />} />
