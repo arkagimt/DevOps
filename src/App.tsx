@@ -12,7 +12,7 @@ import OverviewPage from './components/OverviewPage';
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/DevOps">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<OverviewPage />} />
